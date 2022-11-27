@@ -97,6 +97,8 @@ async def run():
             async with BleakClient(d.address) as client:
                 print(f'Connected to {d.address}')
                 val = await client.read_gatt_char(RED_LED_UUID)
+                print(val)
+                print(on_value)
                 if (val == on_value):
                     print ('RED ON')
                     RED = True
